@@ -1,2 +1,2 @@
 # multi-step-form-react.js
-A multi step Ekyc form with top navigation to collect user information 
+Multi-step EKYC form using react-hook-form/ zod / shadcn UI
