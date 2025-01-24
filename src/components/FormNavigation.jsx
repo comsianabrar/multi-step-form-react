@@ -21,7 +21,7 @@ const FormNavigation = ({steps, currentStep,  handleFormBarClick}) => {
                   : ''
               } flex items-center justify-center`}
             >
-              {index}
+              {index+1}
             </button>
           )}
           <span className="ml-1 hidden sm:block">{value}

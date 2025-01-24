@@ -10,7 +10,6 @@ import FormNavigation from './components/FormNavigation';
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { data } from 'autoprefixer';
 import { useEffect } from 'react';
 
 const EkycForm = () => {
@@ -23,7 +22,7 @@ const EkycForm = () => {
   const steps = [ 'About','Photo','Certification','Education', 'Description', 'Pricing' ]
   const totalSteps = steps.length;
   const [currentStep, setCurrentStep] = React.useState(0);
-
+  const [visitedSteps, setVisitedSteps] = React.useState([]);
 
   const formSchema = z.object({
     aboutForm: z.object({ 
@@ -62,13 +61,18 @@ const EkycForm = () => {
   };
 
   const handleFormBarClick = (index)=> {
-    if(index < currentStep){
+    // if(index < currentStep){
+    //   return ()=> setCurrentStep(index)
+    // }
+
+    if(visitedSteps.includes(index)){
       return ()=> setCurrentStep(index)
     }
   }
 
   const handleSaveAndContinue = () => {      
     setCurrentStep(currentStep + 1)
+    setVisitedSteps([...visitedSteps, currentStep]);
   }
   
   const { watch } = methods;
@@ -83,7 +87,7 @@ const EkycForm = () => {
 
   return (
     <div>
-      <FormNavigation steps={steps} currentStep={currentStep} handleFormBarClick={handleFormBarClick}></FormNavigation>
+      <FormNavigation steps={steps} visitedSteps={visitedSteps} currentStep={currentStep} handleFormBarClick={handleFormBarClick}></FormNavigation>
  <FormProvider {...methods}>
       <div className='max-w-md mx-auto p-4'>
         <form onSubmit={methods.handleSubmit(onSubmit)} >
