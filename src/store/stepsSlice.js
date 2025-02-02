@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const stepsSlice = createSlice({
     name: "steps",
     initialState: {
-        steps: ['About', 'Photo', 'Certification', 'Education', 'Description', 'Pricing'],
+        steps: ['About', 'Photo', 'Education Information', 'Work Experience', 'Tell us about yourself', 'Save and Publish'],
         currentStep: 0,
         visitedSteps: [],
     },

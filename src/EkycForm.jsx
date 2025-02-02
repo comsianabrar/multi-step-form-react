@@ -1,6 +1,6 @@
 import React from 'react'
-import AboutForm from './components/About/AboutForm';
-import ProfilePictureForm from './components/ProfilePicture/ProfilePictureForm';
+import AboutForm from './components/About';
+import ProfilePictureForm from './components/ProfilePicture';
 import EducationInformationForm from './components/EducationInformationForm';
 import DescriptionForm from './components/DescriptionForm';
 import ThankYouPage from './components/ThankYouPage';
@@ -26,14 +26,13 @@ const EkycForm = () => {
       <div className='max-w-md mx-auto p-4'>
 
         {currentStep === 0 &&
-
           <AboutForm />
-
         }
 
-        {currentStep === 1 && <ProfilePictureForm></ProfilePictureForm>}
-        {currentStep === 2 && <EducationInformationForm></EducationInformationForm>}
-        {currentStep === 3 && <DescriptionForm></DescriptionForm>}
+        {currentStep === 1 && <ProfilePictureForm/>}
+        {currentStep === 2 && <EducationInformationForm/>}
+        {currentStep === 3 && <Experience/>}
+        {currentStep === 3 && <CoverLetter/>}
         {currentStep === 4 && <ThankYouPage></ThankYouPage>}
 
       </div>

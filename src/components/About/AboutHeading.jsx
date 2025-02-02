@@ -10,5 +10,5 @@ const AboutHeading = () => {
   )
 }
 
-
+  
 export default AboutHeading

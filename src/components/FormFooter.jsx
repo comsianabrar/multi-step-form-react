@@ -6,6 +6,9 @@ import { handleBackButton } from '../store/stepsSlice'
 const FormFooter = () => {
 
     const { currentStep, steps } = useSelector((state) => state.steps);
+
+    const dispatch = useDispatch();
+
     const totalSteps = steps.length;
 
   return (
@@ -13,7 +16,7 @@ const FormFooter = () => {
     {
       (currentStep > 0 && currentStep < totalSteps) &&
 
-      <Button className='bg-white border-gray-900 hover:bg-slate-100 text-black' size='lg' onClick={() => dispatch(handleBackButton)}>Back</Button>
+      <Button className='bg-white border-gray-900 hover:bg-slate-100 text-black' size='lg' onClick={() => dispatch(handleBackButton())}>Back</Button>
     }
     {
       currentStep < totalSteps &&
