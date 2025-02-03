@@ -5,11 +5,9 @@ import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '../ui/
 import { string, z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Input } from "@/components/ui/input";
-import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { setCurrentStep, setVisitedSteps } from '../../store/stepsSlice';
-
+import { useSelector } from 'react-redux';
 
 const ProfilePictureForm = () => {
 
@@ -66,6 +64,7 @@ const ProfilePictureForm = () => {
     dispatch(setVisitedSteps(currentStep));
   };
 
+  const { currentStep } = useSelector((state) => state.steps);
   return (
     <>
       <FormProvider {...methods}>
