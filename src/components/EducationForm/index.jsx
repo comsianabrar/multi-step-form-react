@@ -30,16 +30,22 @@ const educationSchema = z.object({
 const EducationForm = () => {
     const [addMoreEducationLink, setAddMoreEducationLink] = useState(true);
 
-    const storedData = JSON.parse(localStorage.getItem('educationData')) || [];
+    const storedData =
+        // JSON.parse(localStorage.getItem('educationData')) ||
+        [];
 
     const { currentStep } = useSelector((state) => state.steps);
     const dispatch = useDispatch();
 
     const methods = useForm({
-        resolver: zodResolver(z.object({
-            education: z.array(educationSchema).nonempty(),
-            no_education_check: z.boolean().optional(),
-        })),
+        resolver: zodResolver(
+            addMoreEducationLink ? z.object({
+                education: z.array(educationSchema).nonempty(),
+                no_education_check: z.boolean().optional(),
+            }) : z.object({
+                no_education_check: z.boolean().optional()
+            })
+        ),
         defaultValues: {
             education: storedData.length ? storedData : [{}],
             no_education_check: false,
@@ -75,7 +81,7 @@ const EducationForm = () => {
         if (checked) {
             methods.setValue("education", []);
             setAddMoreEducationLink(false)
-        }else{
+        } else {
             methods.setValue("education", [{}]);
             setAddMoreEducationLink(true)
         }
