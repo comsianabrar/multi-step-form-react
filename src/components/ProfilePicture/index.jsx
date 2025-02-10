@@ -14,11 +14,10 @@ const ProfilePictureForm = () => {
   const imageData = localStorage.getItem('profile_picture_base64') || '';
   const storedData = JSON.parse(localStorage.getItem('formData')) || {};
 
-  const fileUploadSchema = z.object({
-    profile_picture: imageData
-      ? z
-        .string().min(1, { message: "Profile picture is required" })
-      : z
+
+  const fileUploadSchema = imageData ? z.object({}) :  z.object({
+    profile_picture: 
+     z
         .instanceof(FileList, { message: "Profile picture is required" })
         .refine((files) => files.length > 0, { message: "Profile picture is required" }),
   });

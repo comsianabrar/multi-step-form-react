@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProfilePictureHeading = () => {
+const Header = () => {
   return (
     <div className='my-10'>
     <h1 className="text-4xl font-semibold my-5">Educational Information</h1>
@@ -9,4 +9,4 @@ const ProfilePictureHeading = () => {
   )
 }
 
-export default ProfilePictureHeading
+export default Header

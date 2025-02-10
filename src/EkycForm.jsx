@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux';
 
 import { useEffect } from 'react';
 import EducationForm from './components/EducationForm';
+import WorkExperience from './components/WorkExperience';
+import IntroductionForm from './components/IntroductionForm';
 
 const EkycForm = () => {
 
@@ -25,15 +27,12 @@ const EkycForm = () => {
 
       <div className='max-w-md mx-auto p-4'>
 
-        {currentStep === 0 &&
-          <AboutForm />
-        }
-
-        {currentStep === 1 && <ProfilePictureForm/>}
-        {currentStep === 2 && <EducationForm/>}
-        {currentStep === 3 && <Experience/>}
-        {currentStep === 3 && <CoverLetter/>}
-        {currentStep === 4 && <ThankYouPage></ThankYouPage>}
+        {currentStep === 0 && <AboutForm />}
+        {currentStep === 1 && <ProfilePictureForm />}
+        {currentStep === 2 && <EducationForm />}
+        {currentStep === 3 && <WorkExperience />}
+        {currentStep === 4 && <IntroductionForm />}
+        {currentStep === 5 && <ThankYouPage />}
 
       </div>
     </div>

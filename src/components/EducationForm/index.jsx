@@ -7,7 +7,6 @@ import { z } from "zod";
 import FormFooter from "../FormFooter";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentStep, handleBackButton, setVisitedSteps } from "../../store/stepsSlice";
-import EducationFormHeading from "./EducationFormHeading";
 
 import {
     Select,
@@ -18,6 +17,7 @@ import {
 } from "@/components/ui/select"
 import { Trash2 } from 'lucide-react';
 import { Checkbox } from '@/components/ui/checkbox';
+import Header from './Header';
 
 const educationSchema = z.object({
     university: z.string().min(3, "University is required"),
@@ -31,7 +31,7 @@ const EducationForm = () => {
     const [addMoreEducationLink, setAddMoreEducationLink] = useState(true);
 
     const storedData =
-        // JSON.parse(localStorage.getItem('educationData')) ||
+        JSON.parse(localStorage.getItem('educationData')) ||
         [];
 
     const { currentStep } = useSelector((state) => state.steps);
@@ -89,7 +89,7 @@ const EducationForm = () => {
 
     return (
         <>
-            <EducationFormHeading />
+            <Header />
             <FormProvider {...methods}>
                 <form onSubmit={methods.handleSubmit(onSubmit)}>
                     <div className="flex items-center space-x-2 mb-5">
@@ -182,12 +182,11 @@ const EducationForm = () => {
                                             <FormItem className="mt-4">
                                                 <FormLabel>Years of Study From</FormLabel>
                                                 <FormControl>
-                                                    <Select
-                                                        value={field.value}
-                                                        onValueChange={field.onChange}
-                                                    >
+                                                    <Select onValueChange={field.onChange} defaultValue={field.value} value={'Select'} >
                                                         <SelectTrigger className="w-[180px]">
-                                                            <SelectValue placeholder="From" />
+                                                            <span className="capitalize">
+                            { field.value }
+                        </span>
                                                         </SelectTrigger>
                                                         <SelectContent>
                                                             {Array.from({ length: 50 }, (_, i) => (
@@ -211,11 +210,12 @@ const EducationForm = () => {
                                                 <FormLabel>Years of Study To</FormLabel>
                                                 <FormControl>
                                                     <Select
-                                                        value={field.value}
-                                                        onValueChange={field.onChange}
+                                                       onValueChange={field.onChange} defaultValue={field.value} value={'Select'} 
                                                     >
                                                         <SelectTrigger className="w-[180px]">
-                                                            <SelectValue placeholder="To" />
+                                                        <span className="capitalize">
+                            { field.value }
+                        </span>
                                                         </SelectTrigger>
                                                         <SelectContent>
                                                             {Array.from({ length: 50 }, (_, i) => (
