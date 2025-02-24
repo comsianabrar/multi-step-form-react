@@ -1,7 +1,6 @@
 import React from 'react'
 import ProfilePictureHeading from './ProfilePictureHeading'
 import FormFooter from '../FormFooter';
-import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '../ui/Form';
 import { string, z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
