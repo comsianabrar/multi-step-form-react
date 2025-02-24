@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from './ui/Button'
+import { Button } from '../components/ui/button'
 import { useDispatch, useSelector } from 'react-redux'
 import { handleBackButton } from '../store/stepsSlice'
 
