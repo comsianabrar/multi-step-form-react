@@ -1,16 +1,11 @@
 import React from 'react'
 import AboutForm from './components/About';
 import ProfilePictureForm from './components/ProfilePicture';
-import DescriptionForm from './components/DescriptionForm';
-import ThankYouPage from './components/ThankYouPage';
-import { Button } from './components/ui/Button';
+import ThankYouPage from './components/ThankYou';
 import FormNavigation from './components/FormNavigation';
 import { useSelector } from 'react-redux';
-
-import { useEffect } from 'react';
 import EducationForm from './components/EducationForm';
-import WorkExperience from './components/WorkExperience';
-import IntroductionForm from './components/IntroductionForm';
+import TellUsAbout from './components/TellUsAbout';
 
 const EkycForm = () => {
 
@@ -30,9 +25,8 @@ const EkycForm = () => {
         {currentStep === 0 && <AboutForm />}
         {currentStep === 1 && <ProfilePictureForm />}
         {currentStep === 2 && <EducationForm />}
-        {currentStep === 3 && <WorkExperience />}
-        {currentStep === 4 && <IntroductionForm />}
-        {currentStep === 5 && <ThankYouPage />}
+        {currentStep === 3 && <TellUsAbout />}
+        {currentStep === 4 && <ThankYouPage />}
 
       </div>
     </div>

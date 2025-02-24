@@ -5,7 +5,7 @@ function App() {
   return (
     <>
      <div className=" h-16   text-gray-900 p-4">
-      <h3 className='font-semibold text-2xl'>EkycForm  </h3>
+      <h3 className='font-semibold text-2xl'>Multi-Step Ekyc Form (Redux)  </h3>
       </div>
 
 <EkycForm></EkycForm>

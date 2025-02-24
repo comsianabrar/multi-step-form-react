@@ -30,9 +30,7 @@ const educationSchema = z.object({
 const EducationForm = () => {
     const [addMoreEducationLink, setAddMoreEducationLink] = useState(true);
 
-    const storedData =
-        JSON.parse(localStorage.getItem('educationData')) ||
-        [];
+    const storedData = localStorage.getItem('educationData') !== "undefined" ? JSON.parse(localStorage.getItem('educationData')) : [];
 
     const { currentStep } = useSelector((state) => state.steps);
     const dispatch = useDispatch();

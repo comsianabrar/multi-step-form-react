@@ -12,7 +12,7 @@ const FormNavigation = () => {
         {steps.map((value, index) => (
           <span className="px-3 flex items-center" key={index} onClick={()=> {}}>
             {index < currentStep && (
-              <button className=" bg-slate-800 rounded-md py-2 px-2 text-xs flex items-center justify-center">
+              <button className=" bg-slate-800 rounded-md py-2 px-2 text-xs m-3 flex items-center justify-center">
                 <FaCheck className='text-white' />
               </button>
             )}
