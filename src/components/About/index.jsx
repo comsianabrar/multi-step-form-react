@@ -8,10 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, FormProvider } from "react-hook-form";
 import { z } from "zod";
 import FormFooter from "../FormFooter";
-import { Button } from "@/components/ui/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentStep, handleBackButton, setVisitedSteps } from "../../store/stepsSlice";
-import { store } from "../../store/store";
 
 const AboutForm = () => {
 
